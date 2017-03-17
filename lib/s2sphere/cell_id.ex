@@ -423,6 +423,7 @@ defmodule S2Sphere.CellId do
   end
 
   def get_all_neighbors(%CellId{} = cell_id, nbr_level) do
+    import Logger
     {face, i, j, orientation} = CellId.to_face_ij_orientation(cell_id)
     size = CellId.get_size_ij(cell_id)
     i = i &&& -size
@@ -446,7 +447,6 @@ defmodule S2Sphere.CellId do
     |> Enum.map(fn({_, list}) -> list end)
     |> List.flatten
     |> Enum.to_list
-
   end
 
   def get_size_ij(%CellId{} = cell_id) do
