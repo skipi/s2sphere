@@ -423,7 +423,6 @@ defmodule S2Sphere.CellId do
   end
 
   def get_all_neighbors(%CellId{} = cell_id, nbr_level) do
-    import Logger
     {face, i, j, orientation} = CellId.to_face_ij_orientation(cell_id)
     size = CellId.get_size_ij(cell_id)
     i = i &&& -size
